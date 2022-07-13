@@ -1,18 +1,10 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 set -e
 set -x
 
-FILES=".angular-config.json \
-  .bash_profile \
-  .git \
-  .gitconfig \
-  .yarnrc \
-  .zshrc
-"
-
-for FILE in $FILES;
+for file_path in files/.*;
 do
-  ln -sf "$PWD/$FILE" "$HOME"
+  ln -sf "$PWD/$file_path" "$HOME"
 done
 
