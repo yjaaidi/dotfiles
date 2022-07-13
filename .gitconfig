@@ -1,0 +1,23 @@
+[push]
+	default = current
+[user]
+	email = yjaaidi@gmail.com
+	signingkey = B5AC7B4F36135C51459DDBB3E595F6FCE03594E9
+	name = Younes Jaaidi
+[init]
+	templatedir = /Users/r/.git-templates
+	defaultBranch = main
+[core]
+	autocrlf = input
+[pager]
+	log = less
+	branch = false
+[alias]
+	l = "log --pretty='%cd %h %s' --graph --date=short"
+	recommit = "!git commit -a -m \"$(git log -1 --pretty=%B)\""
+[gpg]
+	program = /usr/local/bin/gpg
+[pull]
+	ff = only
+[commit]
+	gpgsign = true
