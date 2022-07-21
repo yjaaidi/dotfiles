@@ -152,3 +152,5 @@ function join() {
 # source <(ng completion script)
 
 alias clean-caches="docker system prune --all --force; npm cache clean -f; yarn cache clean -f"
+alias rmnm="mv node_modules /tmp; rm -Rf /tmp/node_modules &"
+alias ghpr="git push; gh pr create -f; gh pr merge -d -m --auto"
