@@ -1,5 +1,6 @@
 [push]
 	default = current
+	autoSetupRemote = true
 [user]
 	email = yjaaidi@gmail.com
 	signingkey = B5AC7B4F36135C51459DDBB3E595F6FCE03594E9
