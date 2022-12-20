@@ -70,10 +70,6 @@ CASE_SENSITIVE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Boost nvm perf.
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
-
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -85,7 +81,6 @@ plugins=(
   macos
   ng
   nx-completion
-  nvm
   yarn-completion
   # bundler
   # dotenv
@@ -143,13 +138,11 @@ function join() {
 # zprof
 
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 alias clean-caches="docker system prune --all --force; npm cache clean -f; yarn cache clean -f"
 alias rmnm="mv node_modules /tmp; rm -Rf /tmp/node_modules &"
 alias ghpr="git push; gh pr create -f; gh pr merge -d -m --auto"
 
 export PATH="$HOME/.poetry/bin:$PATH"
 
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
