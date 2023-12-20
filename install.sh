@@ -2,7 +2,7 @@
 
 set -e
 
-DIR_PATH="$(dirname $0)"
+DIR_PATH="$(realpath $(dirname $0))"
 
 
 for program in \
