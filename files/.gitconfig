@@ -15,6 +15,7 @@
 [alias]
 	l = "log --pretty='%cd %h %s' --graph --date=short"
 	recommit = "!git commit -a -m \"$(git log -1 --pretty=%B)\""
+        wipeout = "!git reset --hard && git clean -df"
 [gpg]
 	program = /opt/homebrew/bin/gpg
 [pull]
