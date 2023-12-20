@@ -27,7 +27,6 @@ which prism || npm i -g @stoplight/prism-cli
 which newman || npm i -g newman
 
 if [ ! -d "$HOME/dev/yjaaidi/scripts" ]; then
-  mkdir -p "$HOME/dev/yjaaidi"
   git clone https://github.com/yjaaidi/scripts.git "$HOME/dev/yjaaidi/scripts"
 fi
 
