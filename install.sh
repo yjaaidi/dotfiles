@@ -26,8 +26,9 @@ volta install node@latest
 which prism || npm i -g @stoplight/prism-cli
 which newman || npm i -g newman
 
-if [ ! -d "$HOME/dev/yjaaidi/scripts" ]; then
-  git clone https://github.com/yjaaidi/scripts.git "$HOME/dev/yjaaidi/scripts"
+SCRIPTS_PATH="$HOME/dev/yjaaidi/scripts"
+if [ ! -d "$SCRIPTS_PATH" ]; then
+  git clone https://github.com/yjaaidi/scripts.git "$SCRIPTS_PATH"
 fi
 
 # Oh My Zsh
@@ -35,8 +36,15 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+# Nx completions
+NX_COMPLETIONS_PATH="$HOME/.oh-my-zsh/custom/plugins/nx-completion"
+if [ ! -d "$NX_COMPLETIONS_PATH" ]; then
+  git clone https://github.com/jscutlery/nx-completion.git "$NX_COMPLETIONS_PATH"
+fi
+
 # Generate gpg key
 if [ $(gpg --list-secret-keys | wc -l) -eq 0 ]; then
+  echo 
   gpg --full-generate-key
   keyid=$(gpg -K --keyid-format SHORT | grep sec | cut -d ' ' -f4 | cut -d '/' -f 2)
   sed -i '' "s|signingkey = .*|signingkey = $keyid|" "$HOME/.gitconfig"
