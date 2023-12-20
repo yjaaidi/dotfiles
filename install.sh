@@ -2,8 +2,13 @@
 
 set -e
 
-DIR_PATH="$(realpath $(dirname $0))"
+PROJECT_ROOT="$(realpath $(dirname $0))"
+GITCONFIG_PATH="$PROJECT_ROOT/files/.gitconfig"
 
+for file_path in $PROJECT_ROOT/files/.*;
+do
+  ln -sf "$file_path" "$HOME"
+done
 
 for program in \
   gping \
@@ -46,7 +51,7 @@ fi
 if [ $(gpg --list-secret-keys | wc -l) -eq 0 ]; then
   gpg --full-generate-key
   keyid=$(gpg -K --keyid-format SHORT | grep sec | cut -d ' ' -f4 | cut -d '/' -f 2)
-  sed -i '' "s|signingkey = .*|signingkey = $keyid|" "$HOME/.gitconfig"
+  sed -i '' "s|signingkey = .*|signingkey = $keyid|" "$GITCONFIG_PATH"
 fi
 
 # Generate ssh key
@@ -55,9 +60,3 @@ if [ ! -f "$key_path" ]; then
   ssh-keygen -t rsa -b 4096
   ssh-add --apple-use-keychain "$key_path"
 fi
-
-for file_path in $DIR_PATH/files/.*;
-do
-  ln -sf "$file_path" "$HOME"
-done
-
