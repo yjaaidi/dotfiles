@@ -44,7 +44,6 @@ fi
 
 # Generate gpg key
 if [ $(gpg --list-secret-keys | wc -l) -eq 0 ]; then
-  echo 
   gpg --full-generate-key
   keyid=$(gpg -K --keyid-format SHORT | grep sec | cut -d ' ' -f4 | cut -d '/' -f 2)
   sed -i '' "s|signingkey = .*|signingkey = $keyid|" "$HOME/.gitconfig"
