@@ -17,11 +17,19 @@ do
 done
 
 which gpg || brew install gpg2 gnupg
-
 grep pinentry-mac "$HOME/.gnupg/gpg-agent.conf" || (echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" > "$HOME/.gnupg/gpg-agent.conf")
 grep use-agent "$HOME/.gnupg/gpg.conf" || (echo 'use-agent' > "$HOME/.gnupg/gpg.conf")
 
 which python3 || (pyenv install 3 && pyenv global 3)
+
+volta install node@latest
+which prism || npm i -g @stoplight/prism-cli
+which newman || npm i -g newman
+
+if [ ! -d "$HOME/dev/yjaaidi/scripts" ]; then
+  mkdir -p "$HOME/dev/yjaaidi"
+  git clone https://github.com/yjaaidi/scripts.git "$HOME/dev/yjaaidi/scripts"
+fi
 
 # Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -41,11 +49,6 @@ if [ ! -f "$key_path" ]; then
   ssh-keygen -t rsa -b 4096
   ssh-add --apple-use-keychain "$key_path"
 fi
-
-volta install node@latest
-
-which prism || npm i -g @stoplight/prism-cli
-which newman || npm i -g newman
 
 for file_path in $DIR_PATH/files/.*;
 do
