@@ -16,7 +16,8 @@ for program in \
   pinentry-mac \
   pyenv \
   volta \
-  xz       
+  watch \
+  xz
 do
   which "$program" || brew install "$program"
 done
