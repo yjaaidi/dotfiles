@@ -11,6 +11,7 @@ do
 done
 
 for program in \
+  ffmpeg \
   gping \
   jq \
   pinentry-mac \
