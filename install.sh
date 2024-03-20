@@ -23,6 +23,7 @@ do
   which "$program" || brew install "$program"
 done
 
+which bun || brew install oven-sh/bun/bun
 which gpg || brew install gpg2 gnupg
 grep pinentry-mac "$HOME/.gnupg/gpg-agent.conf" || (echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" > "$HOME/.gnupg/gpg-agent.conf")
 grep use-agent "$HOME/.gnupg/gpg.conf" || (echo 'use-agent' > "$HOME/.gnupg/gpg.conf")

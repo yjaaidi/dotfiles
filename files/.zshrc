@@ -48,3 +48,6 @@ alias rmnm="mv node_modules /tmp; rm -Rf /tmp/node_modules &"
 alias ghpr="git push; gh pr create -f; gh pr merge -d -m --auto"
 
 source "$HOME/dev/yjaaidi/scripts/aliases"
+
+# bun completions
+[ -s "/Users/y/.bun/_bun" ] && source "/Users/y/.bun/_bun"
