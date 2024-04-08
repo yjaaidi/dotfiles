@@ -13,6 +13,7 @@ done
 for program in \
   ffmpeg \
   gping \
+  hyperfine \
   jq \
   pinentry-mac \
   pyenv \
