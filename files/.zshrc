@@ -32,6 +32,7 @@ export LANG=en_US.UTF-8
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.volta/bin:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:/opt/homebrew/opt/openjdk/bin"
 
 # Join PDF
 function join() {

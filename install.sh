@@ -14,6 +14,7 @@ for program in \
   ffmpeg \
   gping \
   hyperfine \
+  java \
   jq \
   pinentry-mac \
   pyenv \
