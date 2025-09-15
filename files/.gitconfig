@@ -14,8 +14,9 @@
 	branch = false
 [alias]
 	l = "log --pretty='%cd %h %s' --graph --date=short"
+	fixup = "!git commit -a --fixup \"$(git log --pretty=format:'%H %s' | grep -v 'fixup!' | head -n1 | cut -d' ' -f1)\""
 	recommit = "!git commit -a -m \"$(git log -1 --pretty=%B)\""
-        wipeout = "!git reset --hard && git clean -df"
+	wipeout = "!git reset --hard && git clean -df"
 [gpg]
 	program = /opt/homebrew/bin/gpg
 [pull]
