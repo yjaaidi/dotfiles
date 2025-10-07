@@ -23,12 +23,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-eval "$(pyenv init -)"
-
 # You may need to manually set your language environment
 export GPG_TTY=$(tty)
 export LANG=en_US.UTF-8
 
+export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.volta/bin:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
